@@ -65,3 +65,6 @@ dependencies:
     
     # Type Checking
     - mypy==1.10.0
+    
+    # Jupyter Notebook Execution
+    - papermill==2.6.0
