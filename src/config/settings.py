@@ -13,7 +13,7 @@ class Settings(BaseSettings):
 
     # Path Settings
     BASE_DIR: Path = Path(__file__).parent.parent
-    NOTEBOOK_PATH: Path = BASE_DIR / "notebooks"
+    NOTEBOOK_PATH: Path = BASE_DIR / "notebooks" / "prediction.ipynb"
     EXECUTED_NOTEBOOKS_DIR: Path = BASE_DIR / "notebooks" / "executed"
     DATA_DIR: Path = BASE_DIR / "data"
     INPUT_DIR: Path = DATA_DIR / "input"
