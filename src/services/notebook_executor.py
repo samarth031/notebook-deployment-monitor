@@ -5,7 +5,7 @@ import papermill
 from pathlib import Path
 import datetime
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 from config.settings import settings
 from core.exceptions import NotebookExecutionError
@@ -49,7 +49,7 @@ class NotebookExecutor:
             papermill.execute_notebook(
                 input_path=str(self.notebook_path),
                 output_path=str(output_path),
-                # parameters=parameters,
+                parameters=parameters,
                 kernel_name='python3',
                 progress_bar=True,
                 request_save_on_cell_execute=True,

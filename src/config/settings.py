@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     APP_NAME: str = "Churn Prediction API - v1"
     VERSION: str = "0.0.1"
     DEBUG: bool = False
-    HOST: str = "0.0.0.0"
+    HOST: str = "127.0.0.1"
     PORT: int = 8000
     LOG_LEVEL: str = "INFO"
 
@@ -37,6 +37,7 @@ class Settings(BaseSettings):
         env_file = ".env"
         case_sensitive = True
         
+settings = Settings()
 
 # Create directories if they don't exist
 settings.EXECUTED_NOTEBOOKS_DIR.mkdir(parents=True, exist_ok=True)
@@ -46,3 +47,18 @@ settings.MONITORING_DIR.mkdir(parents=True, exist_ok=True)
 settings.REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
     
+if __name__ == "__main__":
+    print(f"BASE_DIR: {settings.BASE_DIR}")
+    print(f"NOTEBOOK_PATH: {settings.NOTEBOOK_PATH}")
+    print(f"EXECUTED_NOTEBOOKS_DIR: {settings.EXECUTED_NOTEBOOKS_DIR}")
+    print(f"DATA_DIR: {settings.DATA_DIR}")
+    print(f"INPUT_DIR: {settings.INPUT_DIR}")
+    print(f"OUTPUT_DIR: {settings.OUTPUT_DIR}")
+    print(f"MONITORING_DIR: {settings.MONITORING_DIR}")
+    print(f"REPORTS_DIR: {settings.REPORTS_DIR}")
+    print(f"NOTEBOOK_EXECUTION_TIMEOUT: {settings.NOTEBOOK_EXECUTION_TIMEOUT}")
+    print(f"MAX_NOTEBOOK_EXECUTIONS: {settings.MAX_NOTEBOOK_EXECUTIONS}")
+    print(f"NOTEBOOK_EXECUTION_INTERVAL: {settings.NOTEBOOK_EXECUTION_INTERVAL}")
+    print(f"DRIFT_THRESHOLD: {settings.DRIFT_THRESHOLD}")
+    print(f"DRIFT_MONITORING_INTERVAL: {settings.DRIFT_MONITORING_INTERVAL}")
+    print(f"PROMETHEUS_PORT: {settings.PROMETHEUS_PORT}")

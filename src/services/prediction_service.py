@@ -21,7 +21,7 @@ class PredictionService:
     
     def __init__(self):
         self.executor = NotebookExecutor()
-        self.model_version = settings.MODEL_VERSION
+        self.model_version = settings.VERSION
     
     async def predict(
         self,
