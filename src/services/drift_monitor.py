@@ -46,7 +46,7 @@ class DriftMonitor:
         )
         
         # Save report
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
         report_path = self.monitoring_dir / f"drift_report_{timestamp}.html"
         report.save_html(str(report_path))
         
@@ -68,7 +68,7 @@ class DriftMonitor:
             drift_detected=drift_detected,
             drift_score=drift_score,
             report_path=str(report_path),
-            timestamp=datetime.now(),
+            timestamp=datetime.datetime.now(),
             affected_features=affected_features
         )
     
@@ -78,8 +78,8 @@ class DriftMonitor:
         input_files = sorted(settings.INPUT_DIR.glob("input_*.csv"))
         recent_files = input_files[-10:]  # Last 10 predictions
         
-        dfs = [pd.read_csv(f) for f in recent_files]
-        return pd.concat(dfs, ignore_index=True)
+        dfs = [pandas.read_csv(f) for f in recent_files]
+        return pandas.concat(dfs, ignore_index=True)
     
     async def get_latest_report(self) -> DriftReportResponse:
         """Get the latest drift report"""
@@ -95,6 +95,6 @@ class DriftMonitor:
             drift_detected=False,  # Load from saved results
             drift_score=0.0,
             report_path=str(latest_report),
-            timestamp=datetime.now(),
+            timestamp=datetime.datetime.now(),
             affected_features=[]
         )
